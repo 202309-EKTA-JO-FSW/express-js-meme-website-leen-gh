@@ -23,6 +23,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/add-meme">Add Meme</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/memes">Memes</a></li>                   
                     </ul>
                 </div>
             </div>
@@ -40,17 +41,19 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <!-- This will be your HTML Meme template that you will use to dynamically render all Memes -->
+
+                    <% memes.forEach(function(meme) { %>        
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Meme image -->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img src="<%= meme.imgURL %>" alt="<%= meme.name %>">
                             <!-- Meme details -->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Meme name -->
-                                    <h5 class="fw-bolder">Fancy Meme</h5>
+                                    <h5 class="fw-bolder"><%= meme.name %></h5>
                                     <!-- Meme price -->
-                                    $40.00 - $80.00
+                                    <%= meme.price %>
                                 </div>
                             </div>
                             <!-- Meme actions -->
@@ -59,6 +62,7 @@
                             </div>
                         </div>
                     </div>
+                    <% }); %>
                 </div>
             </div>
         </section>
